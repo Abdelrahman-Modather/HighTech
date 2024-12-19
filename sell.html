@@ -13,7 +13,7 @@
 <body>
 
 <header>
-    <h1>High Tech Marketplace</h1>
+    <h1>Tech Hub Marketplace</h1>
 </header>
 
 <nav>
@@ -83,8 +83,65 @@
 </div>
 
 <footer>
-    <p>&copy; 2024 High Tech. All Rights Reserved.</p>
+    <p>&copy; 2024 Tech Hub. All Rights Reserved.</p>
 </footer>
 
 </body>
+<script>
+    // Ensure that the DOM is fully loaded before adding event listeners
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('sell').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = {
+                productName: document.getElementById('product-name').value,
+                productModel: document.getElementById('product-model').value,
+                price: document.getElementById('price').value,
+                description: document.getElementById('description').value
+            };
+
+            fetch('http://localhost:3000/sell', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                // Optionally, clear the form fields
+                document.getElementById('sellForm').reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error submitting the product.');
+            });
+        });
+    });
+</script>
+<script>
+    // Fetch and display products in the marketplace
+    fetch('http://localhost:3000/products')
+        .then(response => response.json())
+        .then(products => {
+            const productListing = document.getElementById('product-listing');
+            products.forEach(product => {
+                const productElement = document.createElement('div');
+                productElement.classList.add('product');
+                productElement.innerHTML = `
+                    <img src="https://via.placeholder.com/150" alt="${product.product_name}">
+                    <h2>${product.product_name}</h2>
+                    <p>Model: ${product.product_model}</p>
+                    <p class="price">${product.price} OMR</p>
+                    <button>Buy Now</button>
+                `;
+                productListing.appendChild(productElement);
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error fetching products.');
+        });
+</script>
 </html>

@@ -10,7 +10,7 @@ body {
   margin: 0;
   width: 100%;
   font-family: "Exo 2", sans-serif;
-  background: linear-gradient(to right, #7A1CAC, #AD49E1);
+  background-color: #f5f5f5;
   color: #f5f5f5;
   overflow-x: hidden;
 }
@@ -259,7 +259,7 @@ main {
   width: 80%;
   padding: 15px;
   border: 1px solid #5a189a;
-  background-color: transparent;
+  background-color: #5a189a;
   border-radius: 8px;
   margin-bottom: 20px;
   transition: max-height 0.3s ease-in-out;
@@ -268,8 +268,8 @@ main {
 }
 
 .category:hover {
-  background-color: rgba(131, 56, 236, 0.1);
-  box-shadow: 0 8px 25px rgba(131, 56, 236, 0.15);
+  background-color: #431e68;
+  box-shadow: 0 8px 25px #7b589e;
   transform: scale(1.05);
 }
 

@@ -20,9 +20,13 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="login.html" style="text-decoration: underline;">Hello, Hareth</a></li>
+                <li id="auth-section">
+                    <a href="login.html" id="login-link" class="login-btn">Login</a>
+                    <span id="user-greeting" style="display: none;">Hello, <span id="username"></span></span>
+                </li>
             </ul>
         </nav>
+        
     </header>
     
     <section id="home" class="hero">
@@ -126,4 +130,5 @@
 
 </body>
 <script src="main.js"></script>
+<!-- <script src="auth.js"></script> -->
 </html>
